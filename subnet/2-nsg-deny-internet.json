@@ -5,11 +5,7 @@
     "mode": "All",
     "description": "To find the existing rule to block internet",
     "metadata": {
-      "category": "VNET",
-      "createdBy": "e430bfa0-a4a9-4b29-af1e-f180e1c30613",
-      "createdOn": "2020-07-15T07:02:24.523148Z",
-      "updatedBy": "e430bfa0-a4a9-4b29-af1e-f180e1c30613",
-      "updatedOn": "2020-07-16T01:16:20.6276814Z"
+      "category": "VNET"      
     },
     "parameters": {},
     "policyRule": {

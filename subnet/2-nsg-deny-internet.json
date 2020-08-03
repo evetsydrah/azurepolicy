@@ -1,0 +1,43 @@
+{
+  "properties": {
+    "displayName": "Audit NSG rule to block Internet - v2",
+    "policyType": "Custom",
+    "mode": "All",
+    "description": "To find the existing rule to block internet",
+    "metadata": {
+      "category": "VNET",
+      "createdBy": "e430bfa0-a4a9-4b29-af1e-f180e1c30613",
+      "createdOn": "2020-07-15T07:02:24.523148Z",
+      "updatedBy": "e430bfa0-a4a9-4b29-af1e-f180e1c30613",
+      "updatedOn": "2020-07-16T01:16:20.6276814Z"
+    },
+    "parameters": {},
+    "policyRule": {
+      "if": {
+        "count": {
+          "field": "Microsoft.Network/networkSecurityGroups/securityRules[*]",
+          "where": {
+            "allOf": [
+              {
+                "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].direction",
+                "equals": "Outbound"
+              },
+              {
+                "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].access",
+                "equals": "Deny"
+              },
+              {
+                "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].destinationAddressPrefix",
+                "equals": "Internet"
+              }
+            ]
+          }
+        },
+        "lessOrEquals": 0
+      },
+      "then": {
+        "effect": "audit"
+      }
+    }
+  }
+}
